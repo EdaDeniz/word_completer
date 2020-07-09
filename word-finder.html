@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Mr._Smiley_Face.svg/1200px-Mr._Smiley_Face.svg.png">
+
+  <title>Autocomplete Sentences</title>
+
+  <!-- Libraries -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+ 
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+  <!-- End of Libraries -->
+
+<body>
+ <div class="sidenav">
+	<br>
+    <img src="https://mezun.thk.edu.tr/wp-content/uploads/sites/34/2019/01/THKU_Mezun_Logo-min.png" width="200" height="200" >
+  <a href="#">E. Deniz Çelik</a>
+  <a href="#">1504....</a>
+  <a href="#">Word Finder</a>
+  <a href="#">CENG 472 </a>
+  <a href="#">HUMAN COMPUTER INTERACTION</a>
+  <a href="#">Assignment-1</a>
+</div>
+<div class="main">
+<div class="ui-widget">
+	<h1 style="color: purple; "> Word Finder by Eda Deniz Çelik </h1>
+	<br>
+  <p class=" lead text-primary">Welcome. Click input field for see all words. As you start writing, suggestions will start to appear. </p>
+  <label for="tags">Start typing </label>
+<div class="input-group">
+    <span class="input-group-btn">
+		<input id="tags" class="form-control" style=" position: center; " placeholder="Type here...."> 
+		<input id="deleteTag" type="button" class="btn btn-danger" value="Clear" >
+
+	</span>
+</div>
+</div>
+</div>
+</body>
+
+<style>
+
+body{
+
+}
+
+.ui-widget{
+	position: center;
+	text-align: center;
+	font-size: 1em;
+	margin: 30px 70px;
+}
+
+ul{
+	list-style-type: square;
+	background: #A9A9A9;
+  	padding: 20px;
+  	height: 200px;
+  	overflow:scroll; overflow-y:scroll;  
+    border: 3px solid;
+    width: 75%;
+
+
+}
+.ui-helper-hidden-accessible{
+	font-size: 1.5em;
+	text-align: center;
+}
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #1a001a;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 6px 6px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+  background-color: #66004d;
+
+}
+
+.main {
+  margin-left: 200px; 
+}
+
+@media screen and (max-height: 650px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+</style>
+<!-- jQuery function -->
+  <script>
+  $( function() {
+    var availableTags = [
+      "Alert",
+      "America",
+      "Assignment",
+      "Apple",
+      "Ali",
+      "Ankara",
+      "Arm",
+      "BASIC",
+      "C",
+      "Civil",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Deniz",
+      "Eda",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme",
+      "Türk Hava Kurumu Üniversitesi"
+    ];
+     $("#tags").autocomplete({
+    source: availableTags,
+    minLength: 0
+  }).focus(function() {
+    $(this).autocomplete("search");
+  });
+  $("#deleteTag").click(function() {
+    document.getElementById("tags").value = "";
+    $("#tags").autocomplete("close");
+    alert("Clear!");
+  });
+});
+  </script>
+</html>
